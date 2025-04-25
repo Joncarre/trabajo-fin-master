@@ -40,6 +40,18 @@ class StopCaptureRequest(BaseModel):
 @app.get("/api/interfaces")
 def get_interfaces():
     interfaces = capture_manager.list_interfaces()
+    
+    # Si no hay interfaces disponibles (error con tshark), devolver algunas interfaces mock
+    # para que la aplicación siga funcionando
+    if not interfaces:
+        # Interfaces de red mock para permitir el uso de la aplicación
+        mock_interfaces = [
+            {"id": "mock_ethernet", "name": "Ethernet (Mock)"},
+            {"id": "mock_wifi", "name": "Wi-Fi (Mock)"}
+        ]
+        print("INFO: Usando interfaces mock porque no se encontró TShark")
+        return {"interfaces": mock_interfaces}
+    
     return {"interfaces": interfaces}
 
 @app.get("/api/databases")

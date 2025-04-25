@@ -19,8 +19,20 @@ const PcapUploader: React.FC<Props> = ({ onDbReady }) => {
       setError("Selecciona un archivo .pcap");
       return;
     }
+
+    // Add file extension validation
+    const selectedFile = files[0];
+    if (!selectedFile.name.toLowerCase().endsWith('.pcap')) {
+      setError("El archivo seleccionado debe tener la extensión .pcap");
+      // Reset the file input if the extension is wrong
+      if (fileInput.current) {
+        fileInput.current.value = '';
+      }
+      return;
+    }
+
     const formData = new FormData();
-    formData.append("file", files[0]);
+    formData.append("file", selectedFile); // Use selectedFile here
     setUploading(true);
     try {
       const res = await fetch("/api/upload_pcap", {
