@@ -1,0 +1,25 @@
+{
+    "company_name": "TechSecure Solutions",
+    "security_contact": "Departamento de Seguridad Informática",
+    "network_size": "grande",
+    "industry": "tecnología",
+    "critical_assets": [
+      "servidores de producción",
+      "bases de datos de clientes",
+      "repositorio de código",
+      "servicios web públicos",
+      "sistemas de autenticación"
+    ],
+    "security_level": "avanzado",
+    "critical_ips": [
+      "192.168.10.0/24",
+      "10.0.1.0/24"
+    ],
+    "expected_services": {
+      "80": "Servidores web internos",
+      "443": "Servidores web seguros",
+      "3306": "Bases de datos MySQL",
+      "5432": "Bases de datos PostgreSQL",
+      "22": "Acceso SSH a servidores"
+    }
+  }

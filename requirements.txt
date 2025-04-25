@@ -1,0 +1,19 @@
+# Captura de paquetes
+scapy==2.5.0
+pyshark==0.6.0
+
+# Procesamiento de datos
+pandas==2.1.0
+numpy==1.25.2
+
+# Web y API
+fastapi==0.103.1
+uvicorn==0.23.2
+
+# Testing
+pytest==7.4.0
+pytest-cov==4.1.0
+
+# Utilidades
+python-dotenv==1.0.0
+pydantic==2.3.0
